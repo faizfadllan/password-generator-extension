@@ -1,3 +1,6 @@
+<img width="1360" height="724" alt="image" src="https://github.com/user-attachments/assets/be645d55-66e2-41cf-bf0a-66b6b1e81b7e" />
+
+
 # Generate Password Extension
 
 A fast and secure random password generator browser extension.
@@ -19,7 +22,6 @@ A fast and secure random password generator browser extension.
 - `popup.html`
 - `script.js`
 - `style.css`
-- `README.md`
 
 ## Notes
 - At least one character type must be selected
