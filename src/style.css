@@ -1,0 +1,218 @@
+:root {
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --accent: #22c55e;
+    --accent-hover: #16a34a;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --border-radius: 12px;
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* --- PERUBAHAN UTAMA UNTUK EKSTENSI CHROME --- */
+body {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    width: 360px;
+    margin: 0;
+    padding: 0; 
+}
+
+.container {
+    width: 100%;
+    padding: 1.5rem;
+}
+/* --------------------------------------------- */
+
+header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.password-display-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.password-display {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 3rem 1rem 1rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s;
+    word-break: break-all;
+}
+
+.password-display:focus {
+    border-color: var(--accent);
+}
+
+.copy-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 5px;
+}
+
+.copy-btn:hover {
+    color: var(--accent);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.length-control {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.length-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.length-val {
+    color: var(--accent);
+    font-weight: bold;
+    font-family: monospace;
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.strength-section {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.strength-header {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+.strength-text {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.strength-bars {
+    display: flex;
+    gap: 4px;
+    height: 6px;
+}
+
+.bar {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+/* Strength Colors */
+.weak .bar:nth-child(1) { background: var(--danger); }
+.good .bar:nth-child(1), .good .bar:nth-child(2) { background: var(--warning); }
+.strong .bar:nth-child(1), .strong .bar:nth-child(2), .strong .bar:nth-child(3) { background: var(--success); }
+.very-strong .bar { background: var(--success); }
+
+.generate-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.generate-btn:hover { background-color: var(--accent-hover); }
+.generate-btn:active { transform: scale(0.98); }
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--bg-primary); 
+    border: 1px solid var(--accent);
+    color: var(--text-primary);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+.toast.warning { border-color: var(--warning); color: var(--warning); }
+
